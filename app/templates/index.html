@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ app_name }} | {{ developer }}</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><path d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z'/></svg>">
+</head>
+<body class="bg-slate-50 text-slate-800">
+  
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-logo-container">
+          <!-- Network Shield Original SVG Motif -->
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/>
+            <circle cx="12" cy="12" r="3" fill="#0284c7" stroke="none"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v-2m3 5h2m-5 3v2m-3-5H7"/>
+          </svg>
+          <div class="brand-text">
+            <h1 class="brand-title">Net Sentinel</h1>
+            <span class="brand-subtitle">by Software Vantage</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" data-tab="dashboard">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="#devices" class="nav-item" data-tab="devices">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span>Devices Inventory</span>
+        </a>
+        <a href="#history" class="nav-item" data-tab="history">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Scan History</span>
+        </a>
+        <a href="#analytics" class="nav-item" data-tab="analytics">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>Network Graphs</span>
+        </a>
+        <a href="#router" class="nav-item" data-tab="router">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 18h.01M10 18h.01"/><path d="M2 14c0-4 4-8 10-8s10 4 10 8"/><path d="M6 14c0-2.2 2.7-4 6-4s6 1.8 6 4"/></svg>
+          <span>Router Control</span>
+        </a>
+        <a href="#settings" class="nav-item" data-tab="settings">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-status-card" id="userStatusCard">
+          <div class="user-avatar" id="userAvatar">A</div>
+          <div class="user-info">
+            <span class="user-name" id="displayUsername">Guest</span>
+            <span class="user-role" id="displayRole">Not logged in</span>
+          </div>
+          <button class="btn-logout" id="authActionBtn" title="Sign In / Out">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <h2 class="page-title" id="pageTitle">Network Overview</h2>
+            <p class="page-subtitle">{{ tagline }}</p>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="btn btn-outline" id="btnRefresh">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            <span>Refresh</span>
+          </button>
+          <button class="btn btn-primary" id="btnScanTrigger">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+            <span>Scan Network</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Toast Container -->
+      <div id="toastContainer" class="toast-container"></div>
+
+      <!-- Tab Content: Dashboard -->
+      <section id="tab-dashboard" class="tab-pane active">
+        <!-- 8 Required Summary Metric Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Total Discovered</span>
+              <span class="stat-icon-wrapper bg-blue-100 text-blue-600">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </span>
+            </div>
+            <div class="stat-value" id="statTotalDiscovered">--</div>
+            <div class="stat-subtext">All observed local endpoints</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Currently Online</span>
+              <span class="stat-icon-wrapper bg-emerald-100 text-emerald-600">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </span>
+            </div>
+            <div class="stat-value text-emerald-600" id="statOnline">--</div>
+            <div class="stat-subtext">Active & reachable now</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Offline Devices</span>
+              <span class="stat-icon-wrapper bg-slate-100 text-slate-500">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+              </span>
+            </div>
+            <div class="stat-value text-slate-500" id="statOffline">--</div>
+            <div class="stat-subtext">Retained with last-seen stamp</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Trusted Devices</span>
+              <span class="stat-icon-wrapper bg-indigo-100 text-indigo-600">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
+            </div>
+            <div class="stat-value text-indigo-600" id="statTrusted">--</div>
+            <div class="stat-subtext">User-verified authorized</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Unknown Devices</span>
+              <span class="stat-icon-wrapper bg-amber-100 text-amber-600">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </span>
+            </div>
+            <div class="stat-value text-amber-600" id="statUnknown">--</div>
+            <div class="stat-subtext">Require review & classification</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Blocked by Router</span>
+              <span class="stat-icon-wrapper bg-rose-100 text-rose-600">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              </span>
+            </div>
+            <div class="stat-value text-rose-600" id="statBlocked">--</div>
+            <div class="stat-subtext">Under access restriction</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Most Recent Scan</span>
+              <span class="stat-icon-wrapper bg-sky-100 text-sky-600">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </span>
+            </div>
+            <div class="stat-value-sm" id="statLastScan">Unavailable</div>
+            <div class="stat-subtext" id="statEngineUsed">Engine: Initializing</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Router Status</span>
+              <span class="stat-icon-wrapper bg-teal-100 text-teal-600">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 18h.01M10 18h.01"/><path d="M2 14c0-4 4-8 10-8s10 4 10 8"/></svg>
+              </span>
+            </div>
+            <div class="stat-value-sm" id="statRouterStatus">Unavailable</div>
+            <div class="stat-subtext" id="statRouterModel">DBC HGU-V210-4AC (192.168.1.1)</div>
+          </div>
+        </div>
+
+        <!-- System Notices (Nmap, Subnet) -->
+        <div id="noticeBannerContainer"></div>
+
+        <!-- Network Graphs & Analytics Visual Section -->
+        <div class="analytics-grid mb-6">
+          <!-- Graph 1: Device Connection Timeline -->
+          <div class="card p-5">
+            <div class="flex justify-between items-center mb-3">
+              <div>
+                <h3 class="font-semibold text-sm text-slate-800">Device Connection Timeline</h3>
+                <p class="text-xs text-slate-500">Historical connection events and online reachability by device</p>
+              </div>
+              <span class="badge bg-blue-100 text-blue-700">Recent Connectivity</span>
+            </div>
+            <div id="connectionTimelineChart" class="chart-box">
+              <div class="text-center py-6 text-slate-400 text-xs">Loading connection history...</div>
+            </div>
+          </div>
+
+          <!-- Graph 2: Network Traffic &amp; Device Utilization -->
+          <!--
+          <div class="card p-5">
+            <div class="flex justify-between items-center mb-3">
+              <div>
+                <h3 class="font-semibold text-sm text-slate-800">Network Traffic & Device Utilization</h3>
+                <p class="text-xs text-slate-500">Bandwidth telemetry & consumption breakdown</p>
+              </div>
+              <div class="flex items-center space-x-2 text-xs">
+                <span class="inline-flex items-center gap-1"><span class="legend-dot bg-red"></span> High</span>
+                <span class="inline-flex items-center gap-1"><span class="legend-dot bg-orange"></span> Moderate</span>
+                <span class="inline-flex items-center gap-1"><span class="legend-dot bg-green"></span> Normal</span>
+              </div>
+            </div>
+            <div id="trafficUtilizationChart" class="chart-box">
+              <div class="text-center py-6 text-slate-400 text-xs">Loading network utilization...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter and Search Toolbar -->
+        <div class="table-toolbar">
+          <div class="filter-group">
+            <button class="filter-pill active" data-filter="all">All Devices (<span id="countAll">0</span>)</button>
+            <button class="filter-pill" data-filter="online">Online (<span id="countOnline">0</span>)</button>
+            <button class="filter-pill" data-filter="offline">Offline (<span id="countOffline">0</span>)</button>
+            <button class="filter-pill" data-filter="unknown">Unknown (<span id="countUnknown">0</span>)</button>
+            <button class="filter-pill" data-filter="trusted">Trusted (<span id="countTrusted">0</span>)</button>
+            <button class="filter-pill" data-filter="blocked">Blocked (<span id="countBlocked">0</span>)</button>
+          </div>
+
+          <div class="toolbar-search">
+            <input type="text" id="searchInput" placeholder="Search IP, MAC, Name, Vendor..." class="search-field">
+            <button class="btn btn-sm btn-outline" id="btnExportCsv" title="Export Inventory to CSV">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Export CSV</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Device Table Container -->
+        <div class="table-container">
+          <table class="device-table" id="deviceTable">
+            <thead>
+              <tr>
+                <th>Device Identification</th>
+                <th>IP Address</th>
+                <th>MAC Address</th>
+                <th>Manufacturer / Vendor</th>
+                <th>Classification</th>
+                <th>Status</th>
+                <th>Last Seen</th>
+                <th>Block Status</th>
+                <th class="text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="deviceTableBody">
+              <tr>
+                <td colspan="9" class="text-center py-8 text-slate-400">Loading discovered endpoints...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Tab Content: Device Inventory Full -->
+      <section id="tab-devices" class="tab-pane">
+        <div class="card p-6">
+          <h3 class="text-lg font-semibold mb-2">Device Inventory & Management</h3>
+          <p class="text-sm text-slate-500 mb-6">Classify endpoints, maintain friendly labels, audit past IP movements, and manage trust boundaries.</p>
+          <div id="fullInventoryContainer">
+            <!-- Populated via JS mirroring table with enhanced filtering -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab Content: Scan History -->
+      <section id="tab-history" class="tab-pane">
+        <div class="card p-6">
+          <div class="flex justify-between items-center mb-4">
+            <div>
+              <h3 class="text-lg font-semibold">Discovery Scan Audit Trail</h3>
+              <p class="text-sm text-slate-500">Historical records of network scans, delta calculations, and engine executions.</p>
+            </div>
+            <button class="btn btn-sm btn-outline" id="btnRefreshHistory">Refresh History</button>
+          </div>
+          <div class="table-container">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Scan ID</th>
+                  <th>Start Time</th>
+                  <th>Duration</th>
+                  <th>Subnet</th>
+                  <th>Engine Used</th>
+                  <th>Found</th>
+                  <th>New</th>
+                  <th>Offline</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="scanHistoryBody">
+                <tr><td colspan="9" class="text-center py-6 text-slate-400">Loading history...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab Content: Network Graphs & Analytics Full View -->
+      <section id="tab-analytics" class="tab-pane">
+        <div class="space-y-6">
+          <div class="card p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <h3 class="text-lg font-semibold text-slate-800">Device Connection Timeline</h3>
+                <p class="text-sm text-slate-500">Chronological connection timestamps and presence duration across discovered devices</p>
+              </div>
+              <button class="btn btn-sm btn-outline" id="btnRefreshAnalytics">Refresh Graphs</button>
+            </div>
+            <div id="fullConnectionTimelineChart" class="chart-box-large">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <div class="card p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <h3 class="text-lg font-semibold text-slate-800">Network Traffic & Device Utilization</h3>
+                <p class="text-sm text-slate-500">Bandwidth distribution, endpoint activity hierarchy, and transfer metrics</p>
+              </div>
+              <div class="flex items-center space-x-3 text-xs">
+                <span class="inline-flex items-center gap-1.5"><span class="legend-dot bg-red"></span> High Usage</span>
+                <span class="inline-flex items-center gap-1.5"><span class="legend-dot bg-orange"></span> Moderate Usage</span>
+                <span class="inline-flex items-center gap-1.5"><span class="legend-dot bg-green"></span> Normal Usage</span>
+              </div>
+            </div>
+            <div id="fullTrafficUtilizationChart" class="chart-box-large">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab Content: Router Control -->
+      <section id="tab-router" class="tab-pane">
+        <div class="card p-6 mb-6">
+          <div class="flex justify-between items-center mb-4">
+            <div>
+              <h3 class="text-lg font-semibold">Router Access Control & Adapter</h3>
+              <p class="text-sm text-slate-500">Target: DBC HGU-V210-4AC (Default: http://192.168.1.1)</p>
+            </div>
+            <button class="btn btn-sm btn-primary" id="btnTestRouter">Inspect Gateway</button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6" id="routerCapabilitiesCard">
+            <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+              <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Gateway Model</span>
+              <p class="text-base font-medium text-slate-800" id="routerModelName">DBC HGU-V210-4AC</p>
+              <span class="text-xs text-slate-500" id="routerServerHeader">Server: Checking...</span>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+              <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Automation Status</span>
+              <p class="text-base font-medium text-amber-600" id="routerAutoStatus">Guided Manual Workflow</p>
+              <span class="text-xs text-slate-500">Zero-simulation integrity policy enforced</span>
+            </div>
+          </div>
+
+          <div class="p-4 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-900 mb-6">
+            <h4 class="font-semibold mb-1">DBC HGU-V210-4AC Access Control Architecture:</h4>
+            <p>DBC FTTH ONT routers support MAC Filtering under <code>Security / Advanced Network -> MAC Filter</code>. To prevent accidental network lockout, Net Sentinel enforces:</p>
+            <ul class="list-disc ml-5 mt-2 space-y-1">
+              <li>Strict protection against blocking the Gateway (192.168.1.1) or Host Laptop.</li>
+              <li>Explicit confirmation showing MAC, IP, and device name before applying any rule.</li>
+              <li>Complete audit logging of all submitted, confirmed, or rejected operations.</li>
+            </ul>
+          </div>
+
+          <h4 class="text-md font-semibold mb-3">Active Access Control Rules</h4>
+          <div class="table-container">
+            <table class="device-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Target MAC</th>
+                  <th>IP Address</th>
+                  <th>Action</th>
+                  <th>Rule Status</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody id="routerRulesBody">
+                <tr><td colspan="6" class="text-center py-4 text-slate-400">No active router rules registered.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab Content: Settings -->
+      <section id="tab-settings" class="tab-pane">
+        <div class="card p-6 max-w-4xl">
+          <h3 class="text-lg font-semibold mb-2">Net Sentinel Configuration</h3>
+          <p class="text-sm text-slate-500 mb-6">Tune discovery thresholds, review network subnets, toggle mobile LAN access, and create backups.</p>
+
+          <form id="settingsForm" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Router Gateway IP</label>
+                <input type="text" id="settingRouterGateway" class="input-field" placeholder="192.168.1.1">
+                <span class="text-xs text-slate-400">Default administration interface address</span>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Subnet Range (CIDR)</label>
+                <input type="text" id="settingSubnet" class="input-field" placeholder="192.168.1.0/24">
+                <span class="text-xs text-slate-400">Private RFC 1918 subnets only</span>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Automatic Scan Interval (Minutes)</label>
+                <input type="number" id="settingScanInterval" class="input-field" min="1" max="1440" placeholder="15">
+                <span class="text-xs text-slate-400">Background polling interval</span>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Local Database Backup</label>
+                <button type="button" class="btn btn-outline w-full" id="btnBackupDb">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                  <span>Create SQLite Backup Now</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Mobile Access Section -->
+            <div class="pt-4 border-t border-slate-200">
+              <h4 class="font-semibold text-sm text-slate-800 mb-2">Mobile Phone & LAN Access</h4>
+              <p class="text-xs text-slate-500 mb-4">Allow dashboard access from your Android phone connected to home Wi-Fi.</p>
+              
+              <div class="flex items-center space-x-3 mb-3">
+                <input type="checkbox" id="settingLanAccess" class="checkbox">
+                <label for="settingLanAccess" class="text-sm font-medium text-slate-700">Enable LAN Dashboard Access (Bind to 0.0.0.0)</label>
+              </div>
+
+              <div id="lanAccessDetails" class="p-4 bg-slate-50 border border-slate-200 rounded-lg text-xs space-y-2 hidden">
+                <p><strong>Mobile Dashboard Address:</strong> <a id="lanUrlLink" href="#" target="_blank" class="text-blue-600 underline font-mono">http://192.168.1.38:8000</a></p>
+                <p class="text-slate-500">Ensure Windows Defender Firewall allows incoming connections on port 8000 for Private Networks.</p>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 flex justify-between items-center">
+              <span class="text-xs text-slate-400" id="settingAppVersion">Net Sentinel v1.0.0</span>
+              <button type="submit" class="btn btn-primary">Save Settings</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Device Details Modal -->
+  <div class="modal-backdrop" id="deviceModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalDeviceTitle">Device Details</h3>
+        <button class="modal-close" data-close="deviceModal">&times;</button>
+      </div>
+      <div class="modal-body space-y-4" id="deviceModalContent">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scan Trigger / Confirmation Modal -->
+  <div class="modal-backdrop" id="scanModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Run Network Discovery Scan</h3>
+        <button class="modal-close" data-close="scanModal">&times;</button>
+      </div>
+      <div class="modal-body space-y-4">
+        <p class="text-sm text-slate-600">Review the target network subnet and select discovery engine before running.</p>
+        
+        <div>
+          <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Target Subnet</label>
+          <input type="text" id="scanSubnetInput" class="input-field" value="192.168.1.0/24">
+          <span class="text-xs text-slate-400">Confirmed against active network interface</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Discovery Technique</label>
+          <select id="scanEngineSelect" class="input-field">
+            <option value="auto">Auto (Windows Native High-Speed ARP / Nmap fallback)</option>
+            <option value="native">Native Windows ARP & ICMP Sweep</option>
+            <option value="nmap">Nmap Ping Discovery (-sn)</option>
+          </select>
+        </div>
+
+        <div id="scanProgressArea" class="hidden py-4 text-center">
+          <div class="spinner mx-auto mb-2"></div>
+          <p class="text-sm font-medium text-slate-700">Scanning local endpoints... please wait.</p>
+        </div>
+
+        <div class="flex justify-end space-x-3 pt-4 border-t border-slate-100">
+          <button class="btn btn-outline" data-close="scanModal">Cancel</button>
+          <button class="btn btn-primary" id="btnExecuteScan">Start Scan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block / Unblock Confirmation Modal -->
+  <div class="modal-backdrop" id="blockModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title text-rose-600" id="blockModalTitle">Confirm Access Control Change</h3>
+        <button class="modal-close" data-close="blockModal">&times;</button>
+      </div>
+      <div class="modal-body space-y-4">
+        <div class="p-3 bg-amber-50 border border-amber-200 rounded text-amber-900 text-xs">
+          <strong>Important Security Notice:</strong> Blocking a device will restrict its local and internet connectivity through the router. Never block the default gateway or host machine.
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-lg space-y-2 text-sm border border-slate-200">
+          <div class="flex justify-between"><span class="text-slate-500">Device Name:</span><span class="font-medium" id="blockTargetName">--</span></div>
+          <div class="flex justify-between"><span class="text-slate-500">IP Address:</span><span class="font-mono" id="blockTargetIp">--</span></div>
+          <div class="flex justify-between"><span class="text-slate-500">MAC Address:</span><span class="font-mono font-semibold" id="blockTargetMac">--</span></div>
+          <div class="flex justify-between"><span class="text-slate-500">Router Target:</span><span>DBC HGU-V210-4AC (192.168.1.1)</span></div>
+        </div>
+
+        <div class="flex items-center space-x-2 pt-2">
+          <input type="checkbox" id="blockConfirmCheckbox" class="checkbox">
+          <label for="blockConfirmCheckbox" class="text-xs font-medium text-slate-700">I confirm that I want to apply this access control action.</label>
+        </div>
+
+        <div id="manualDbcGuide" class="p-3 bg-blue-50 border border-blue-200 rounded text-xs text-blue-900 space-y-1">
+          <p class="font-semibold">DBC HGU-V210-4AC Guided Procedure:</p>
+          <ol class="list-decimal ml-4 space-y-1">
+            <li>Log into router admin at <a href="http://192.168.1.1" target="_blank" class="underline">http://192.168.1.1</a>.</li>
+            <li>Navigate to <code>Security</code> &gt; <code>MAC Filter</code>.</li>
+            <li>Add MAC <code class="font-bold" id="blockGuideMac">--</code> to Blacklist and save.</li>
+          </ol>
+        </div>
+
+        <div class="flex justify-end space-x-3 pt-4 border-t border-slate-100">
+          <button class="btn btn-outline" data-close="blockModal">Cancel</button>
+          <button class="btn btn-danger" id="btnConfirmBlock">Confirm Action</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth / Setup Modal -->
+  <div class="modal-backdrop" id="authModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="authModalTitle">Sign In to Net Sentinel</h3>
+        <button class="modal-close" data-close="authModal">&times;</button>
+      </div>
+      <div class="modal-body space-y-4">
+        <p class="text-xs text-slate-500" id="authModalDesc">Enter your administrator credentials to access management controls.</p>
+        
+        <form id="authForm" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Username</label>
+            <input type="text" id="authUsername" class="input-field" required value="admin">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Password</label>
+            <input type="password" id="authPassword" class="input-field" required placeholder="Minimum 6 characters">
+          </div>
+          <div class="flex justify-end space-x-3 pt-4 border-t border-slate-100">
+            <button type="button" class="btn btn-outline" data-close="authModal">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btnAuthSubmit">Sign In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
